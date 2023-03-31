@@ -12,7 +12,7 @@ class Event {
         for (int i = 0; i < choices.length; i++) {
             result = result + "\n" + (char) (i + 65) + " => " + choices[i];
         }
-        return result;
+        return result + "\n" + "Good sir... What will you do?\n";
     }
 
     public String getChoice(int n) {
