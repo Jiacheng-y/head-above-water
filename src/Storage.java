@@ -9,22 +9,31 @@ import java.util.stream.Stream;
 public class Storage {
     // References : https://www.baeldung.com/java-csv for csv convention conversion
 
-    public static final String CSV_FILE_NAME = "game_data.csv";
-    public static File csvOutputFile;
+    private final String CSV_FILE_NAME = "game_data.csv";
+    private File csvOutputFile;
+    private List<String[]> dataLines;
 
     public Storage() {
         csvOutputFile = new File(CSV_FILE_NAME);
+        dataLines = new ArrayList<>();
+        //TODO: add headers for data to be stored in csv
+        String[] header = new String[] {};
+        dataLines.add(header);
     }
 
-    public void writeToFile(String[] data) {
-        List<String[]> dataLines = new ArrayList<>();
+    // prepares data to be written into csv file
+    public void prepareToWrite(String[] data) {
         dataLines.add(data);
+    }
+
+    // Writes all game data into csv file.
+    // MUST be called at the end of the game simulation.
+    public void closeWriter() {
         try {
             givenDataArray_whenConvertToCSV_thenOutputCreated(dataLines);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
-
     }
 
     private String escapeSpecialCharacters(String data) {
