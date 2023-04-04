@@ -6,6 +6,8 @@ class Logic {
     private Scanner scanner =  new Scanner(System.in); 
     private Random random = new Random();
 
+    //game stocks : accumulates across the entire simulation
+
     private Event[] events = new Event[] {
         new Event("Flood strikes..."), 
         new Event("People have overthrown you..."), 
