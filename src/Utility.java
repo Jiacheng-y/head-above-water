@@ -19,7 +19,7 @@ class Utility {
 
     public void initialise() {
         // set effect of the event
-        EVENT_ONE.setEventEffects(
+        EVENT_ONE.setEventEffect(
                 () -> {
                     Satisfaction.decrease(2);
                     FloodResilience.decrease(2);
