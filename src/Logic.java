@@ -1,6 +1,7 @@
 import java.lang.Thread;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.function.Supplier;
 
 class Logic {
     private Scanner scanner =  new Scanner(System.in); 
@@ -55,5 +56,9 @@ class Logic {
             return true;
         }
         return false;
+    }
+
+    public static Integer execute(Supplier<Integer> s) {
+        return s.get();
     }
 }

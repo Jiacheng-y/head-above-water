@@ -1,11 +1,11 @@
 import java.util.List;
 import java.util.ArrayList;
-import java.util.function.Function;
+import java.util.function.Supplier;
 
 class Event {
     private String description;
     private List<String> choices; 
-    private List<Function<Stock, Stock>> effects; 
+    private List<Supplier<Integer>> effects; 
 
     public Event(String description, String first, String second, String third) {
         this.description = description;
@@ -16,7 +16,7 @@ class Event {
         this.choices.add(third);
     }
 
-    public void setEffects(Function<Stock, Stock> first, Function<Stock, Stock> second, Function<Stock, Stock> third) {
+    public void setEffects(Supplier<Integer> first, Supplier<Integer> second, Supplier<Integer> third) {
         this.effects.add(first);
         this.effects.add(second);
         this.effects.add(third);
