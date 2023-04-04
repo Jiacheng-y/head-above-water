@@ -12,4 +12,12 @@ class UI {
     public static void printLine() {
         System.out.println();
     }   
+
+    public static void printStocks() {
+        System.out.println("Here are the values of your stocks!");
+        System.out.println(String.format("Money: %d dollars", Money.level));
+        System.out.println(String.format("Satisfaction: %d units", Satisfaction.level));
+        System.out.println(String.format("Flood resilience: %d units", FloodResilience.level));
+        System.out.println(String.format("Population: %d people", Population.level));
+    }
 }

@@ -4,9 +4,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 class Utility {
-    public static final Event EVENT_ONE = new Event("", "", "", "");
-    public static final Event EVENT_TWO = new Event("", "", "", "");
-    public static final Event EVENT_THREE = new Event("", "", "", "");
+    public final Event EVENT_ONE = new Event("", "", "", "");
+    public final Event EVENT_TWO = new Event("", "", "", "");
+    public final Event EVENT_THREE = new Event("Immense political pressure has been mounting among your colleagues to", "", "", "");
 
-    public static Event[] events = new Event[] {EVENT_ONE, EVENT_TWO, EVENT_THREE};
+    
+    
+    public Event[] events = new Event[] {EVENT_ONE, EVENT_TWO, EVENT_THREE};
 }

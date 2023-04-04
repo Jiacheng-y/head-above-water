@@ -6,6 +6,7 @@ class Event {
     private String description;
     private List<String> choices; 
     private List<Supplier<Integer>> effects; 
+    private Supplier<Integer> eventEffect;
 
     public Event(String description, String first, String second, String third) {
         this.description = description;
@@ -22,6 +23,10 @@ class Event {
         this.effects.add(third);
     }
 
+    public void setEventEffect(Supplier<Integer> eventEffect) {
+        this.eventEffect = eventEffect;
+    }
+
     @Override
     public String toString() {
         String result = this.description;
@@ -33,5 +38,13 @@ class Event {
 
     public String getChoice(int n) {
         return choices.get(n);
+    }
+
+    public Supplier<Integer> getEffect(int n) {
+        return effects.get(n);
+    }
+
+    public Supplier<Integer> getEffect() {
+        return eventEffect;
     }
 }
