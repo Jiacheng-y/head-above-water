@@ -5,6 +5,7 @@ import java.util.stream.IntStream;
 import java.util.function.Supplier;
 
 class Utility {
+<<<<<<< HEAD
     public static String RIVER_CANALISATION = String.format("River canalisation\nCost: -%d\nSatisfaction: +%d\nFlood resistance: +%d\n", 100, 7, 4);
     public static String RIVER_NATURALISATION = String.format("River canalisation\nCost: -%d\nSatisfaction: +%d\nFlood resistance( only increases 3 rounds later): +%d\n", 2000, 2, 10);
     public static String DO_NOTHING = String.format("River canalisation\nCost: -%d\nSatisfaction: +%d\nFlood resistance: +%d\n", 0, 0, 0);
@@ -14,7 +15,7 @@ class Utility {
             "led to significant land subsidence. As a result, the recent rainfall caused flooding in the city!", RIVER_CANALISATION,
             RIVER_NATURALISATION, DO_NOTHING);
     public final Event EVENT_TWO = new Event("", "", "", "");
-    public final Event EVENT_THREE = new Event("", "", "", "");
+    public final Event EVENT_THREE = new Event("Immense political pressure has been mounting among your colleagues to", "", "", "");
 
     public void initialise() {
         // set effect of the event

@@ -19,6 +19,7 @@ class Logic {
                 continue;
             };
             UI.display(event.toString());
+            UI.printStocks();
             while (scanner.hasNextLine()) {
                 String response = scanner.nextLine().toUpperCase();
                 if (isInvalidResponse(response)) {
@@ -26,6 +27,7 @@ class Logic {
                     continue;
                 } else {
                     UI.display(String.format("User selected: %s", event.getChoice(convertResponse(response)))); 
+                    execute(event.getEffect(convertResponse(response)));
                     break;
                 }
             }
