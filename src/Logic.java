@@ -9,9 +9,13 @@ class Logic {
 
     //game stocks : accumulates across the entire simulation
 
-    private Event[] events = new Event[] {};
+    private Event[] events;
 
     public void start() {
+        Utility utility = new Utility();
+        utility.initialise();
+        events = utility.events;
+
         for (Event event : events) {
             UI.printLine();
             if (simulateDisaster()) {
@@ -19,6 +23,7 @@ class Logic {
                 continue;
             };
             UI.display(event.toString());
+            UI.printLine();
             UI.printStocks();
             while (scanner.hasNextLine()) {
                 String response = scanner.nextLine().toUpperCase();

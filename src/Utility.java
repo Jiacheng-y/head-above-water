@@ -14,8 +14,10 @@ class Utility {
     public final Event EVENT_ONE = new Event("Excessive groundwater extraction over the past few years have " +
             "led to significant land subsidence. As a result, the recent rainfall caused flooding in the city!", RIVER_CANALISATION,
             RIVER_NATURALISATION, DO_NOTHING);
+
     public final Event EVENT_TWO = new Event("Sea level is rising! As a result, your city has flooded! What will you do?", SEA_WALL, RIVER_NATURALISATION, DO_NOTHING);
-    public final Event EVENT_THREE = new Event("Immense political pressure has been mounting among your colleagues to", "", "", "");
+    public final Event EVENT_THREE = new Event("Your colleagues are shunning you for your policies on flood prevention... \"Just normalise the river\", they say! If this goes on, the overall satisfaction of your candidacy will be impacted!",
+            "Sure, river normalisation has been tried and tested... let's just go with the flow... it will cost $2000 dollars but their satisfaction will go up by 10", "The money is better spent on naturalisation though... $3000 dollars for an increase in flood resilience of 3 units per time step over 3 time steps", "I guess I'll just lay low for now...");
 
     public void initialise() {
         // set effect of the event
@@ -63,7 +65,30 @@ class Utility {
                 },
                 () -> {return 0;}
         );
+        EVENT_THREE.setEffects((Supplier<Integer>) () -> {
+            Money.decrease(3000);
+            Satisfaction.increase(10);
+            return 0;
+        }, () -> {
+            Money.decrease(3000);
+            GrandFather.queue.add(new Effect(() -> {
+                FloodResilience.increase(3);
+                return 0;
+            }, 1));
+            GrandFather.queue.add(new Effect(() -> {
+                FloodResilience.increase(3);
+                return 0;
+            }, 1));
+            GrandFather.queue.add(new Effect(() -> {
+                FloodResilience.increase(3);
+                return 0;
+            }, 1));
+            return 0;
+        }, () -> {
+            Satisfaction.decrease(20);
+            return 0;
+        });
     }
 
-    public Event[] events = new Event[] {EVENT_ONE, EVENT_TWO, EVENT_THREE};
+    public Event[] events = new Event[] {EVENT_ONE, EVENT_THREE, EVENT_TWO};
 }
