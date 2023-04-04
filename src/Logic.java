@@ -8,11 +8,7 @@ class Logic {
 
     //game stocks : accumulates across the entire simulation
 
-    private Event[] events = new Event[] {
-        new Event("Flood strikes..."), 
-        new Event("People have overthrown you..."), 
-        new Event("You have bankrupted yourself...")
-    };
+    private Event[] events = new Event[] {};
 
     public void start() {
         for (Event event : events) {

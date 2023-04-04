@@ -1,21 +1,37 @@
+import java.util.List;
+import java.util.ArrayList;
+import java.util.function.Function;
+
 class Event {
     private String description;
-    private String[] choices = {"Add green spaces!", "Make the river wider and deeper!", "Snooze..."};
+    private List<String> choices; 
+    private List<Function<Stock, Stock>> effects; 
 
-    public Event(String description) {
+    public Event(String description, String first, String second, String third) {
         this.description = description;
+        this.choices = new ArrayList<>();
+        this.effects = new ArrayList<>();
+        this.choices.add(first); 
+        this.choices.add(second);
+        this.choices.add(third);
+    }
+
+    public void setEffects(Function<Stock, Stock> first, Function<Stock, Stock> second, Function<Stock, Stock> third) {
+        this.effects.add(first);
+        this.effects.add(second);
+        this.effects.add(third);
     }
 
     @Override
     public String toString() {
         String result = this.description;
-        for (int i = 0; i < choices.length; i++) {
-            result = result + "\n" + (char) (i + 65) + " => " + choices[i];
+        for (int i = 0; i < choices.size(); i++) {
+            result = result + "\n" + (char) (i + 65) + " => " + choices.get(i);
         }
-        return result + "\n" + "Good sir... What will you do?\n";
+        return result + "\n" + "What will you do?\n";
     }
 
     public String getChoice(int n) {
-        return choices[n];
+        return choices.get(n);
     }
 }
