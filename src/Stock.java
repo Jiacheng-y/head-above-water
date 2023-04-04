@@ -1,13 +1,15 @@
 public class Stock {
     public static int level;
 
-    public static void increase(int val) {
+    public static int increase(int val) {
         level += val;
+        return val;
     }
 
-    public static void decrease(int val) {
+    public static int decrease(int val) {
         if (level >= 0) {
             level -= val;
         }
+        return val;
     }
 }
