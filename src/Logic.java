@@ -12,6 +12,8 @@ class Logic {
     private Event[] events = new Event[] {};
 
     public void start() {
+        Utility utility = new Utility();
+        utility.initialise();
         for (Event event : events) {
             UI.printLine();
             if (simulateDisaster()) {
