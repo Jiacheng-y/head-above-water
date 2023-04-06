@@ -19,7 +19,8 @@ public class Storage {
         csvOutputFile = new File(CSV_FILE_NAME);
         dataLines = new ArrayList<>();
         //TODO: add headers for data to be stored in csv
-        String[] header = new String[] {};
+        String[] header = new String[] {"Event", "Money", "Approval", "Population",
+                "Infrastructure", "Land Subsidence", "River Capacity"};
         dataLines.add(header);
     }
 

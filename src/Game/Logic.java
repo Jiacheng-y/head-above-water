@@ -15,6 +15,7 @@ import Game.GameStocks.RiverCapacity;
 class Logic {
     private Scanner scanner =  new Scanner(System.in); 
     private Random random = new Random();
+    private Storage storage = new Storage();
 
     //game stocks : accumulates across the entire simulation
 
@@ -52,6 +53,7 @@ class Logic {
                 } else {
                     UI.display(String.format("User selected: %s", event.getChoice(convertResponse(response)))); 
                     execute(event.getEffect(convertResponse(response)));
+
                     break;
                 }
             }
