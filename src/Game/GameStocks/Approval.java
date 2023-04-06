@@ -1,7 +1,7 @@
-package GameStocks;
+package Game.GameStocks;
 
-public class Stock {
-    public static int level;
+public class Approval extends Stock {
+    public static int level = 70;
 
     public static int increase(int val) {
         level += val;

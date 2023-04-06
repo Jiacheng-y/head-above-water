@@ -1,3 +1,5 @@
+package Game;
+
 import java.util.function.Supplier;
 
 class Effect implements Comparable<Effect> {

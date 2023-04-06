@@ -1,7 +1,16 @@
+package Game;
+
 import java.lang.Thread;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.function.Supplier;
+
+import Game.GameStocks.Approval;
+import Game.GameStocks.FloodInfrastructureProtection;
+import Game.GameStocks.LandSubsidence;
+import Game.GameStocks.Money;
+import Game.GameStocks.Population;
+import Game.GameStocks.RiverCapacity;
 
 class Logic {
     private Scanner scanner =  new Scanner(System.in); 
@@ -12,16 +21,26 @@ class Logic {
     private Event[] events;
 
     public void start() {
+
         Utility utility = new Utility();
-        utility.initialise();
         events = utility.events;
 
-        for (Event event : events) {
+        for (int i = 0; i < events.length; i++) {
+            Event event = events[i];
             UI.printLine();
-            if (simulateDisaster()) {
-                UI.display("You can't do anything this round because of the DISASTER. >:D");
-                continue;
-            };
+//            if (simulateDisaster()) {
+//                UI.display("You can't do anything this round because of the DISASTER. >:D");
+//                continue;
+//            };
+
+//            UI.printStocks();
+
+            //in each round, effects related to that round from the pq will be executed
+            GrandFather.execute(i);
+
+            //simulate disaster for the round
+            simulateDisaster();
+
             UI.display(event.toString());
             UI.printLine();
             UI.printStocks();
@@ -42,7 +61,7 @@ class Logic {
 
     public static void sleep() {
         try {
-            Thread.sleep(800);
+            Thread.sleep(500);
         } catch (InterruptedException e) {
             System.out.println("Thread was interrupted...");
         }
@@ -57,9 +76,16 @@ class Logic {
         return response.length() > 1 || response.charAt(0) < 65 || response.charAt(0) > 67; 
     }
 
-    private boolean simulateDisaster() { 
-        if (random.nextDouble() < 0.05) {
+    private boolean simulateDisaster() {
+        double floodProbability = Double.min(1,
+                random.nextDouble() * LandSubsidence.getMultiplier() * RiverCapacity.getMultiplier());
+        if (floodProbability > 0.7) {
             UI.display("BOOMZ! Big floods all around!");
+            Money.decrease((int) floodProbability * 1000);
+//            System.out.println(Money.level);
+            Population.decrease((int) floodProbability * 1000);
+            FloodInfrastructureProtection.decrease((int) floodProbability * 10);
+            Approval.decrease((int) floodProbability * 10);
             return true;
         }
         return false;

@@ -1,26 +1,22 @@
+package Game;
+
 import java.util.List;
 import java.util.ArrayList;
 import java.util.function.Supplier;
 
 class Event {
     private String description;
-    private List<String> choices; 
-    private List<Supplier<Integer>> effects; 
+    private List<Decision> choices;
     private Supplier<Integer> eventEffect;
 
-    public Event(String description, String first, String second, String third) {
+    public Event(String description, Supplier<Integer> eventEffect, Decision first, Decision second, Decision third) {
         this.description = description;
+        this.eventEffect = eventEffect;
+
         this.choices = new ArrayList<>();
-        this.effects = new ArrayList<>();
         this.choices.add(first); 
         this.choices.add(second);
         this.choices.add(third);
-    }
-
-    public void setEffects(Supplier<Integer> first, Supplier<Integer> second, Supplier<Integer> third) {
-        this.effects.add(first);
-        this.effects.add(second);
-        this.effects.add(third);
     }
 
     public void setEventEffect(Supplier<Integer> eventEffect) {
@@ -37,14 +33,14 @@ class Event {
     }
 
     public String getChoice(int n) {
-        return choices.get(n);
+        return choices.get(n).toString();
     }
 
     public Supplier<Integer> getEffect(int n) {
-        return effects.get(n);
+        return choices.get(n).getDecisionEffect();
     }
 
-    public Supplier<Integer> getEffect() {
+    public Supplier<Integer> getEventEffect() {
         return eventEffect;
     }
 }
