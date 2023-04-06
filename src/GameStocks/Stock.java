@@ -1,3 +1,5 @@
+package GameStocks;
+
 public class Stock {
     public static int level;
 

@@ -1,10 +1,14 @@
 import java.util.function.Supplier;
 
+import GameStocks.Approval;
+import GameStocks.FloodResilience;
+import GameStocks.Money;
+
 class Utility {
-    public static String RIVER_CANALISATION = String.format("River canalisation\nCost: -%d\nApproval: +%d\nFlood resistance: +%d\n", 100, 7, 4);
-    public static String RIVER_NATURALISATION = String.format("River naturalisation\nCost: -%d\nApproval: +%d\nFlood resistance( only increases 3 rounds later): +%d\n", 2000, 2, 10);
-    public static String DO_NOTHING = String.format("Do nothing\nCost: -%d\nApproval: +%d\nFlood resistance: +%d\n", 0, 0, 0);
-    public static String SEA_WALL = String.format("Build a sea wall!\nCost: -%d\nApproval: +%d\nFlood resistance: +%d\n", 300, 5, 5);
+    public static String RIVER_CANALISATION = String.format("River canalisation\nCost: -%d\nGameStocks.Approval: +%d\nFlood resistance: +%d\n", 100, 7, 4);
+    public static String RIVER_NATURALISATION = String.format("River naturalisation\nCost: -%d\nGameStocks.Approval: +%d\nFlood resistance( only increases 3 rounds later): +%d\n", 2000, 2, 10);
+    public static String DO_NOTHING = String.format("Do nothing\nCost: -%d\nGameStocks.Approval: +%d\nFlood resistance: +%d\n", 0, 0, 0);
+    public static String SEA_WALL = String.format("Build a sea wall!\nCost: -%d\nGameStocks.Approval: +%d\nFlood resistance: +%d\n", 300, 5, 5);
 
     // Event 1: land subsidence due to excessive groundwater extraction
     public final Event EVENT_ONE = new Event("Excessive groundwater extraction over the past few years have " +
