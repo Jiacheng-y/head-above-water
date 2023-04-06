@@ -1,5 +1,5 @@
 import GameStocks.Approval;
-import GameStocks.FloodResilience;
+import GameStocks.FloodInfrastructureProtection;
 import GameStocks.Money;
 import GameStocks.Population;
 
@@ -22,7 +22,7 @@ class UI {
         System.out.println("Here are the values of your stocks!");
         System.out.println(String.format("GameStocks.Money: %d dollars", Money.level));
         System.out.println(String.format("GameStocks.Approval: %d units", Approval.level));
-        System.out.println(String.format("Flood resilience: %d units", FloodResilience.level));
+        System.out.println(String.format("Flood resilience: %d units", FloodInfrastructureProtection.level));
         System.out.println(String.format("GameStocks.Population: %d people", Population.level));
     }
 }

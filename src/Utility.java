@@ -1,7 +1,7 @@
 import java.util.function.Supplier;
 
 import GameStocks.Approval;
-import GameStocks.FloodResilience;
+import GameStocks.FloodInfrastructureProtection;
 import GameStocks.Money;
 
 class Utility {
@@ -24,7 +24,7 @@ class Utility {
         EVENT_ONE.setEventEffect(
                 () -> {
                     Approval.decrease(2);
-                    FloodResilience.decrease(2);
+                    FloodInfrastructureProtection.decrease(2);
                     return 0;
                 });
         // order of effect methods corresponding to effect of choices
@@ -32,13 +32,13 @@ class Utility {
                 () -> {
                     Money.decrease(100);
                     Approval.increase(7);
-                    FloodResilience.increase(4);
+                    FloodInfrastructureProtection.increase(4);
                     return 0;
                 },
                 () -> {
                     Money.decrease(2000);
                     Approval.increase(2);
-                    GrandFather.queue.add(new Effect(() -> FloodResilience.increase(10), 3));
+                    GrandFather.queue.add(new Effect(() -> FloodInfrastructureProtection.increase(10), 3));
                     return 0;
                 },
                 () -> {return 0;}
@@ -46,7 +46,7 @@ class Utility {
         EVENT_TWO.setEventEffect(
                 () -> {
                     Approval.decrease(3);
-                    FloodResilience.decrease(3);
+                    FloodInfrastructureProtection.decrease(3);
                     return 0;
                 });
         // order of effect methods corresponding to effect of choices
@@ -54,13 +54,13 @@ class Utility {
                 () -> {
                     Money.decrease(300);
                     Approval.increase(5);
-                    FloodResilience.increase(5);
+                    FloodInfrastructureProtection.increase(5);
                     return 0;
                 },
                 () -> {
                     Money.decrease(2000);
                     Approval.increase(2);
-                    GrandFather.queue.add(new Effect(() -> FloodResilience.increase(10), 3));
+                    GrandFather.queue.add(new Effect(() -> FloodInfrastructureProtection.increase(10), 3));
                     return 0;
                 },
                 () -> {return 0;}
@@ -72,15 +72,15 @@ class Utility {
         }, () -> {
             Money.decrease(3000);
             GrandFather.queue.add(new Effect(() -> {
-                FloodResilience.increase(3);
+                FloodInfrastructureProtection.increase(3);
                 return 0;
             }, 1));
             GrandFather.queue.add(new Effect(() -> {
-                FloodResilience.increase(3);
+                FloodInfrastructureProtection.increase(3);
                 return 0;
             }, 1));
             GrandFather.queue.add(new Effect(() -> {
-                FloodResilience.increase(3);
+                FloodInfrastructureProtection.increase(3);
                 return 0;
             }, 1));
             return 0;
