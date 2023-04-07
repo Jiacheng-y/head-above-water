@@ -9,7 +9,8 @@ class Event {
     private List<Decision> choices;
     private Supplier<Integer> eventEffect;
 
-    public Event(String description, Supplier<Integer> eventEffect, Decision first, Decision second, Decision third) {
+    public Event(String description, Supplier<Integer> eventEffect, Decision first, Decision second, Decision third,
+                 Decision fourth) {
         this.description = description;
         this.eventEffect = eventEffect;
 
@@ -17,6 +18,7 @@ class Event {
         this.choices.add(first); 
         this.choices.add(second);
         this.choices.add(third);
+        this.choices.add(fourth);
     }
 
     public void setEventEffect(Supplier<Integer> eventEffect) {

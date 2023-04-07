@@ -43,9 +43,13 @@ class Utility {
                 return 0;
     });
 
+    public Decision noAction = new Decision(DO_NOTHING,
+            () -> Approval.decrease(2)
+    );
+
     //EVENTS
     public Event EVENT_POLITICS = new Event(EVENT_DESC_POLITICAL,
-            () -> Approval.decrease(5), dredging, parliamentDebate, canalisation);
+            () -> Approval.decrease(5), dredging, parliamentDebate, canalisation, noAction);
 
 
     //EVENT ARRAY
