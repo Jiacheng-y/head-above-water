@@ -26,8 +26,8 @@ class Logic {
         Utility utility = new Utility();
         events = utility.events;
 
-        for (int i = 0; i < events.length; i++) {
-            Event event = events[i];
+        for (Event event : events) {
+            GrandFather.update();
             UI.printLine();
 //            if (simulateDisaster()) {
 //                UI.display("You can't do anything this round because of the DISASTER. >:D");
@@ -37,7 +37,7 @@ class Logic {
 //            UI.printStocks();
 
             //in each round, effects related to that round from the pq will be executed
-            GrandFather.execute(i);
+            GrandFather.execute();
 
             //simulate disaster for the round
             simulateDisaster();
