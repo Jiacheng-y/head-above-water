@@ -44,7 +44,7 @@ class Utility {
     });
 
     public Decision noAction = new Decision(DO_NOTHING,
-            () -> Approval.decrease(2)
+            () -> Approval.decrease(1)
     );
 
     //EVENTS
